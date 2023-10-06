@@ -15,7 +15,9 @@ RUN /usr/local/bin/install-ci.sh
 
 FROM ci AS dev
 
-RUN npm install -g node-dev
+COPY scripts/install-dev.sh /usr/local/bin
+
+RUN /usr/local/bin/install-dev.sh
 
 # NPM Global Cache Dir
 VOLUME /root/.npm
